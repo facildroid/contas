@@ -38,8 +38,22 @@ async function carregarDados() {
 // ========================================
 
 function separarCSV(linha) {
-    return linha.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g)
-        .map(valor => valor.replace(/^"|"$/g, ""));
+
+    const resultado = [];
+    const regex = /(?:^|,)(?:"((?:""|[^"])*)"|([^",]*))/g;
+
+    let correspondencia;
+
+    while ((correspondencia = regex.exec(linha)) !== null) {
+
+        const valor = correspondencia[1] !== undefined
+            ? correspondencia[1].replace(/""/g, '"')
+            : correspondencia[2];
+
+        resultado.push(valor);
+    }
+
+    return resultado;
 }
 
 function criarTabela(csv) {
