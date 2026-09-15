@@ -126,15 +126,15 @@ document
         try {
 
             const resposta = await fetch(URL_APPS_SCRIPT, {
-
                 method: "POST",
-
-                body: JSON.stringify(dados)
+                body: new URLSearchParams({
+                    id: dados.id,
+                    nome: dados.nome,
+                    cidade: dados.cidade
+                })
             });
-
-
+            
             const resultado = await resposta.json();
-
 
             if (resultado.sucesso) {
 
