@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Cadastro</h1>
+
+        <form id="formulario">
+
+            <label for="id">ID</label>
+            <input type="number" id="id" required>
+
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" required>
+
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" required>
+
+            <button type="submit">
+                Gravar registro
+            </button>
+
+        </form>
+
+        <p id="mensagem"></p>
+
+        <h2>Dados da Planilha</h2>
+
+        <div id="tabela-container">
+            Carregando dados...
+        </div>
+
+    </main>
+
+    <script src="js/script_cadastro.js"></script>
+
+</body>
+
+</html>
