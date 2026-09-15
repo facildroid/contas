@@ -37,6 +37,11 @@ async function carregarDados() {
 // CRIAR TABELA
 // ========================================
 
+function separarCSV(linha) {
+    return linha.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g)
+        .map(valor => valor.replace(/^"|"$/g, ""));
+}
+
 function criarTabela(csv) {
 
     const linhas = csv.trim().split("\n");
@@ -48,7 +53,8 @@ function criarTabela(csv) {
 
     const linhaCabecalho = document.createElement("tr");
 
-    const colunas = linhas[0].split(",");
+    const colunas = separarCSV(linhas[0]);
+    //const colunas = linhas[0].split(",");
 
     colunas.forEach(function (coluna) {
 
@@ -71,6 +77,8 @@ function criarTabela(csv) {
 
         const linha = document.createElement("tr");
 
+        //const dados = linhas.slice(1).map(linha => separarCSV(linha));
+        const valores = separarCSV(linhas[i]);
         const valores = linhas[i].split(",");
 
         valores.forEach(function (valor) {
