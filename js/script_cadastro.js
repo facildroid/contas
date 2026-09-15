@@ -79,7 +79,7 @@ function criarTabela(csv) {
 
         //const dados = linhas.slice(1).map(linha => separarCSV(linha));
         const valores = separarCSV(linhas[i]);
-        const valores = linhas[i].split(",");
+        //const valores = linhas[i].split(",");
 
         valores.forEach(function (valor) {
 
